@@ -38,7 +38,31 @@ async function fetchWithRetry(url,options={},retries=3) {
     for(let i=0;i<retries;i++){
         try{
             console.log()
+            console.log(`📡 Attempt ${i+1}/${retries}-Fetching: ${url}`);
+            const response=await fetch(url,{
+                method:options.method||'GET',
+                headers:{
+                    'Content-Type':'application/json',
+                    ...options.headers
+                },
+                mode:'cors',
+                cache: 'no-cache'
+            });
+             if (response.ok) {
+                const data = await response.json();
+                console.log(`✅ Success (Attempt ${i + 1})`);
+                return data;
+            } else {
+                console.warn(`⚠️ Response status: ${response.status}`);
+            }
+        } catch (error) {
+            console.error(`❌ Attempt ${i + 1} failed:`, error.message);
+            if (i < retries - 1) {
+                console.log(`⏳ Retrying in 1 second...`);
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
         }
     }
-    
+    throw new Error('Failed after all retries');
+
 }

@@ -219,4 +219,11 @@ body {
     transition: all 0.3s ease;
 }
 .btn-logout:hover{
+     background: #e1e4e8;
+}
+.issues-container{
+    width: 100%;
+    margin: 40px auto;
+    padding: 0 24px ;
+}
   

@@ -34,3 +34,11 @@ loginForm.addEventListener('submit',(e)=>{
         alert('Invalid credentials! Please use:\nUsername:admin\nPassword:admin123');
     }
 });
+async function fetchWithRetry(url,options={},retries=3) {
+    for(let i=0;i<retries;i++){
+        try{
+            console.log()
+        }
+    }
+    
+}

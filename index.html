@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Issues Tracker</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="loginPage" class="login-container">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="./assets/github-logo.png">
+            </div>
+            <h1 class="login-title">GitHub Issues Tacker</h1>
+            <p class="login-subtitle">Sign in to manage your issues</p>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username" value="">
+                    <small class="help-text">Default: admin</small>
+                </div >
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password" value="">
+                    <small class="help-text">Default: admin123</small>
+                </div>
+                <button type="submit" class="btn-signgin">Sign IN</button>
+            </form>
+            <div class="demo-section">
+                <p class="demo-text">OR</p>
+                <p class="demo-label">Demo Credentials</p>
+                <p class="demo-credentials">Username:<strong>admin</strong></p>
+                <p class="demo-credentials">Password:<strong>admin123</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

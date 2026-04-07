@@ -64,5 +64,38 @@ async function fetchWithRetry(url,options={},retries=3) {
         }
     }
     throw new Error('Failed after all retries');
-
+}
+async function loadAllIssues() {
+    showLoadingSpinner(true);
+    try {
+        console.log('🔄 Loading issues...');
+        console.log('API URL:', `${API_BASE}/issues`);
+        
+        const data = await fetchWithRetry(`${API_BASE}/issues`);
+        console.log('📦 Raw response:', data);
+        
+        allIssues = parseIssuesFromResponse(data);
+        console.log(`✅ Successfully loaded ${allIssues.length} issues`);
+        
+        if (allIssues.length > 0) {
+            applyFilter('all');
+        } else {
+            console.warn('⚠️ No issues found');
+            issuesGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: #6a737d;"><p>No issues available</p></div>';
+        }
+        
+        showLoadingSpinner(false);
+        
+    } catch (error) {
+        console.error('❌ Fatal error loading issues:', error);
+        showLoadingSpinner(false);
+        issuesGrid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: #d73a49;">
+                <p>Failed to load issues</p>
+                <p style="font-size: 12px; color: #6a737d;">Error: ${error.message}</p>
+                <button onclick="location.reload()" style="margin-top: 20px; padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer;">Retry</button>
+            </div>
+        `;
+        alert('Failed to load issues:\n' + error.message);
+    }
 }

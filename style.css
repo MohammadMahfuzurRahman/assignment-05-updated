@@ -8,9 +8,7 @@ body {
     background-color: #f6f8fa;
     color: #24292e;
 }
-.hidden{
-    display: none;
-}
+
 .login-container{
     min-height: 100vh;
     display: flex;
@@ -135,6 +133,9 @@ body {
     color: #24292e;
     font-weight: 600;
 }
+.hidden{
+    display: none;
+}
 .main-page{
     min-height: 100vh;
     background-color: #f6f8fa;
@@ -177,7 +178,7 @@ body {
     overflow: hidden;
     flex: 0 1 300px;
 }
-.serach-input{
+.search-input{
     flex: 1;
     padding: 8px 12px;
     border: none;
@@ -185,7 +186,7 @@ body {
     font-size: 14px;
     outline: none;
 }
-.serach-btn{
+.search-btn{
     padding: 8px 12px;
     background: transparent;
     border: none;
@@ -308,4 +309,76 @@ body {
     justify-content: center;
     padding: 60px 20px ;
     gap: 16px;
+}
+.spinner{
+    border: 4px solid #f6f8fa;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+.loading-spinner p{
+    color: #6a737d;
+    font-size: 14px;
+}
+.issues-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 24px;
+    width: 100%;
+    padding: 0;
+}
+.issue-card{
+    background: white;
+    border: 1px solid #e1e4e8;
+    border-top: 4px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+}
+.issue-card:hover{
+    box-shadow:  0 3px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+.issue-card.open{
+    border-top-color: #28a745;
+}
+.issue-card.closed{
+    border-top-color: #6f42c1;
+}
+.issue-title{
+    font-size: 15px;
+    font-weight: 600;
+    color: #24292e;
+    margin-bottom: 8px;
+    word-break: break-word;
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.issue-description{
+    font-size: 13px;
+    color: #586069;
+    margin-bottom: 12px;
+    flex-grow: 1;
+    word-break: break-word;
+    max-height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }

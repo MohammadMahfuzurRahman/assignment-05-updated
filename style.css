@@ -135,3 +135,88 @@ body {
     color: #24292e;
     font-weight: 600;
 }
+.main-page{
+    min-height: 100vh;
+    background-color: #f6f8fa;
+}
+.navbar{
+    background: white;
+    border-bottom: 1px solid #e1e4e8;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgb(0,0,0,0,0.05);
+}
+.navbar-left{
+    flex: 1;
+}
+.navbar-logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    justify-content: flex-end;
+}
+.search-container{
+    display: flex;
+    background: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    overflow: hidden;
+    flex: 0 1 300px;
+}
+.serach-input{
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    outline: none;
+}
+.serach-btn{
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #6a737d;
+}
+.btn-new-issue{
+    padding: 8px 16px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-new-issue:hover{
+    background: #5568d3;
+}
+.btn-logout{
+    padding: 8px 16px;
+    background: #f6f8fa;
+    color: #24292e;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-logout:hover{
+  
